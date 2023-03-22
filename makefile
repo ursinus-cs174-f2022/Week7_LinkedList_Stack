@@ -10,4 +10,4 @@ driver: linkedlist.o driver.cpp
 	$(CC) $(CFLAGS) -o driver driver.cpp linkedlist.o
 
 clean:
-	rm *.o driver 
+	rm *.o driver

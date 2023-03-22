@@ -5,25 +5,17 @@ using namespace std;
 
 int main() {
     LinkedList list;
-    void* toRemove = NULL;
     for (int i = 0; i < 15; i++) {
-        int* x = new int;
-        *x = i*i;
-        if (i == 6) {
-            toRemove = x;
-            cout << "Will be removing " << *x << " from the list\n";
-        }
+        PrintableInt* x = new PrintableInt(i*i);
         list.addFirst(x);
     }
-    int i = 0;
-    // Remove something in the middle
-    list.remove(toRemove);
+    list.addFirst(new PrintableAnimal());
+
     while (list.size() > 0) {
-        cout << "i = " << i << "\n";
-        int* x = (int*)list.removeFirst();
-        cout << *x << " ";
+        Printable* x = list.removeFirst();
+        x->print();
+        cout << " ";
         delete x;
-        i++;
     }
     cout << "\n";
 
